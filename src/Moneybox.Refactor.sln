@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27604.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moneybox.App", "Moneybox.App\Moneybox.App.csproj", "{C1E5082E-45D6-469C-BD08-B87348851443}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F69273B2-D9ED-4605-A87C-DD9EF9BD11F7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moneybox.Domain", "MoneyBox.Domain\Moneybox.Domain.csproj", "{5F1B5EF3-24B7-4B8E-84EA-CBB938F5A49F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moneybox.UnitTests", "Moneybox.UnitTests\Moneybox.UnitTests.csproj", "{5A9E86DB-A413-4600-A8B6-90B42E7576AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monebox.Infrastructure", "Monebox.Infrastructure\Monebox.Infrastructure.csproj", "{3F4D14F4-02F8-4F00-9C90-29E6565B095F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moneybox.IntegrationTests", "Moneybox.IntegrationTests\Moneybox.IntegrationTests.csproj", "{F2CAA12A-0BF3-4D79-AADD-E8087D56F74B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,29 @@ Global
 		{C1E5082E-45D6-469C-BD08-B87348851443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1E5082E-45D6-469C-BD08-B87348851443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1E5082E-45D6-469C-BD08-B87348851443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F1B5EF3-24B7-4B8E-84EA-CBB938F5A49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F1B5EF3-24B7-4B8E-84EA-CBB938F5A49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F1B5EF3-24B7-4B8E-84EA-CBB938F5A49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F1B5EF3-24B7-4B8E-84EA-CBB938F5A49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A9E86DB-A413-4600-A8B6-90B42E7576AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A9E86DB-A413-4600-A8B6-90B42E7576AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A9E86DB-A413-4600-A8B6-90B42E7576AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A9E86DB-A413-4600-A8B6-90B42E7576AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F4D14F4-02F8-4F00-9C90-29E6565B095F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4D14F4-02F8-4F00-9C90-29E6565B095F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F4D14F4-02F8-4F00-9C90-29E6565B095F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4D14F4-02F8-4F00-9C90-29E6565B095F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2CAA12A-0BF3-4D79-AADD-E8087D56F74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2CAA12A-0BF3-4D79-AADD-E8087D56F74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2CAA12A-0BF3-4D79-AADD-E8087D56F74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2CAA12A-0BF3-4D79-AADD-E8087D56F74B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A9E86DB-A413-4600-A8B6-90B42E7576AA} = {F69273B2-D9ED-4605-A87C-DD9EF9BD11F7}
+		{F2CAA12A-0BF3-4D79-AADD-E8087D56F74B} = {F69273B2-D9ED-4605-A87C-DD9EF9BD11F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BBC44E4-088E-4757-B143-20E33390DC00}
