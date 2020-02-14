@@ -9,5 +9,6 @@ There are 6 domain events ApproachingPayInLimitDomainEvent, FundsLowDomainEvent,
 
 I would use Decision Table pattern https://en.wikipedia.org/wiki/Decision_table to customize some business rules inside of Account entity (you can find my comments inside)
 
+Also, for Transfer and Withdrwal opertation Event Sourcing is much preferable approach, so we can log each transaction.  
 
 Thank you for your review.
