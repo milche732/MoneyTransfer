@@ -1,6 +1,7 @@
 ﻿using Moneybox.Domain;
 using Moneybox.Domain.Domain;
 using Moneybox.Domain.Domain.Events;
+using Moneybox.UnitTests.SeedWork;
 using System;
 using System.Linq;
 using Xunit;
@@ -34,9 +35,18 @@ namespace Moneybox.UnitTests
             
             fromAccount.WithdrawMoney(10);
 
+            AggregateTest.AssertSingleDomainEvent<AccountWithdrawnDomainEvent>(fromAccount, x => {
+                Assert.Equal(10m, x.Amount);
+                Assert.Equal(fromAccount, x.Account);
+            });
+
+            AggregateTest.AssertSingleDomainEvent<FundsLowDomainEvent>(fromAccount, x => {
+                Assert.Equal(fromAccount, x.Account);
+            });
+            /*
             Assert.Collection(fromAccount.DomainEvents, 
                 x => Assert.Equal(typeof(AccountWithdrawnDomainEvent),x.GetType()),
-                x => Assert.Equal(typeof(FundsLowDomainEvent), x.GetType()));
+                x => Assert.Equal(typeof(FundsLowDomainEvent), x.GetType()));*/
         }
     }
 }

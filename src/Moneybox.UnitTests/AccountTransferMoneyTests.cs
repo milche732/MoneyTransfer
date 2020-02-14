@@ -1,6 +1,7 @@
 ﻿using Moneybox.Domain;
 using Moneybox.Domain.Domain;
 using Moneybox.Domain.Domain.Events;
+using Moneybox.UnitTests.SeedWork;
 using System;
 using System.Linq;
 using Xunit;
@@ -67,9 +68,18 @@ namespace Moneybox.UnitTests
             
             toAccount.TransferMoney(fromAccount, 150);
 
+            AggregateTest.AssertSingleDomainEvent<AccountWithdrawnDomainEvent>(fromAccount, x => {
+                Assert.Equal(150m, x.Amount);
+                Assert.Equal(fromAccount, x.Account);
+            });
+
+            AggregateTest.AssertSingleDomainEvent<FundsLowDomainEvent>(fromAccount, x => {
+                Assert.Equal(fromAccount, x.Account);
+            });
+            /*
             Assert.Collection(fromAccount.DomainEvents,
               x => Assert.Equal(typeof(AccountWithdrawnDomainEvent), x.GetType()),
-              x => Assert.Equal(typeof(FundsLowDomainEvent), x.GetType()));
+              x => Assert.Equal(typeof(FundsLowDomainEvent), x.GetType()));*/
         }
 
         [Fact]
@@ -81,10 +91,20 @@ namespace Moneybox.UnitTests
 
             toAccount.TransferMoney(fromAccount, 5);
 
+            AggregateTest.AssertSingleDomainEvent<AccountPaidInDomainEvent>(toAccount, x => {
+                Assert.Equal(5m, x.Amount);
+                Assert.Equal(toAccount, x.Account);
+            });
+
+            AggregateTest.AssertSingleDomainEvent<ApproachingPayInLimitDomainEvent>(toAccount, x => {
+                Assert.Equal(toAccount, x.Account);
+            });
+            /*
             Assert.Collection(toAccount.DomainEvents,
                x => Assert.Equal(typeof(AccountPaidInDomainEvent), x.GetType()),
                   x => Assert.Equal(typeof(ApproachingPayInLimitDomainEvent), x.GetType()));
-        }
+            */    
+    }
 
     }
 }
